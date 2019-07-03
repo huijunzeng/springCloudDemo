@@ -1,0 +1,15 @@
+ribbon 负载均衡
+
+先启动eureka-server，然后启动两个或以上的service-provider实例，最后启动ribbon-consumer，访问测试方法，观察控制台，调用的服务会遵循你选择的负载均衡策略返回数据，可看到负载均衡的实现
+
+提供了七种负载均衡策略（不配置的情况默认是RoundRobinRule轮询策略）：
+
+1.BestAvailableRule  选择一个最小的并发请求的server
+2.AvailabilityFilteringRule  过滤掉那些因为一直连接失败的被标记为circuit tripped的后端server，并过滤掉那些高并发的的后端server（active connections 超过配置的阈值）
+3.WeightedResponseTimeRule 根据响应时间分配一个weight，响应时间越长，weight越小，被选中的可能性越低
+4.RetryRule 对选定的负载均衡策略机上重试机制
+5.RoundRobinRule roundRobin方式轮询选择server
+6.RandomRule 随机选择一个server
+7.ZoneAvoidanceRule 复合判断server所在区域的性能和server的可用性选择server
+
+若需要获取更详细的信息可自行搜索。

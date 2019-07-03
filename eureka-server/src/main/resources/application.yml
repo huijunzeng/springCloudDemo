@@ -15,7 +15,7 @@ spring:
   application:
     name: eureka-server #工程名
   rabbitmq:
-    host: localhost
-    port: 5672
+    host: 14.23.124.140
+    port: 40071
     username: guest
     password: guest

@@ -9,8 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-consumer</artifactId>
-
+    <artifactId>ribbon-consumer</artifactId>
     <build>
         <plugins>
             <plugin>

@@ -1,0 +1,1 @@
+spring cloud eureka服务提供方，向注册中心注册服务，并测试访问是否成功

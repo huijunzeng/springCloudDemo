@@ -1,16 +1,15 @@
 #工程端口号
 server:
-  port: 2001
+  port: 4001
 
 spring:
   application:
-    name: service-consumer #工程名，后面各个服务间调用接口要用到
+    name: feign-consumer #工程名，后面各个服务间调用接口要用到
   rabbitmq:
     host: 14.23.124.140
     port: 40071
     username: guest
     password: guest
-
 #eureka注册中心地址
 eureka:
   client:

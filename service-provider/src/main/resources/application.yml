@@ -5,7 +5,11 @@ server:
 spring:
   application:
     name: service-provider #工程名，后面各个服务间调用接口要用到
-
+  rabbitmq:
+    host: 14.23.124.140
+    port: 40071
+    username: guest
+    password: guest
 #eureka注册中心地址
 eureka:
   client:

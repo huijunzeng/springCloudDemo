@@ -1,0 +1,4 @@
+LoadBalancerClient实现负载均衡，相当于ribbon，可参考ribbon-consumer工程，区别在于前者需要手工的去编写服务选取、链接拼接，后者用法更普遍，当然feign实际用得更多
+
+先启动eureka-server，然后启动两个或以上的service-provider实例，最后启动eureka-consumer，访问测试方法，观察控制台，调用的服务的端口号存在非规律性，可看到负载均衡的实现
+
