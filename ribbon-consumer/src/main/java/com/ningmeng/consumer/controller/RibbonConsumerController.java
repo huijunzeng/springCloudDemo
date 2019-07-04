@@ -15,11 +15,11 @@ public class RibbonConsumerController {
     RestTemplate restTemplate;
 
     /**
-     * fallback方法与ribbonConsumer方法参数要一致
-     * 当断路器打开即触发熔断后，每隔五秒会尝试连接，看一下是否能够正常执行，如果能够正常执行，那么熔断自动恢复，否则继续处于熔断状态。
+     * 熔断降级服务ribbonConsumerHystrix方法与ribbonConsumer方法参数以及返回值类型要一致
+     * 当熔断器打开即触发熔断后，每隔五秒会尝试连接，看一下是否能够正常执行，如果能够正常执行，那么熔断自动恢复，否则继续处于熔断状态。
      * @return
      */
-    @HystrixCommand(fallbackMethod = "fallback", //指定降级方法
+    @HystrixCommand(fallbackMethod = "ribbonConsumerHystrix", //指定熔断服务降级方法
             commandProperties = {
                     @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "1000"),//指定多久超时，单位毫秒,超时进fallbackMethod，默认事件为1000毫秒
                     @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),//判断熔断的最少请求数，默认是10；只有在一个统计窗口内处理的请求数量达到这个阈值，才会进行熔断与否的判断
@@ -32,10 +32,10 @@ public class RibbonConsumerController {
     }
 
     /**
-     * 服务降级方法
+     * 熔断服务降级方法
      * @return
      */
-    public String fallback(@RequestParam String time) {
-        return "error";
+    public String ribbonConsumerHystrix(@RequestParam String time) {
+        return "hystrix熔断：调用接口失败，服务降级，time=" + time;
     }
 }

@@ -16,3 +16,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
 
+# 支持hystrix
+feign:
+  hystrix:
+    enabled: true

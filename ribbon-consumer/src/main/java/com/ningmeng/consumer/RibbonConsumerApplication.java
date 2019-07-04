@@ -12,7 +12,7 @@ import org.springframework.web.client.RestTemplate;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableCircuitBreaker // 开启Hystrix断路器的使用 @EnableHystrix亦可，抑或使用@SpringCloudApplication可替代以上三个注解
+@EnableCircuitBreaker // 开启Hystrix熔断器的使用 @EnableHystrix亦可，抑或使用@SpringCloudApplication可替代以上三个注解
 public class RibbonConsumerApplication {
 
     public static void main(String[] args) {

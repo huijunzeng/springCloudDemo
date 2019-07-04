@@ -1,10 +1,13 @@
 package com.ningmeng.consumer.service;
 
+import com.ningmeng.consumer.service.fallback.FeignConsumerHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "service-provider")//绑定该接口对应service-provider服务
+@FeignClient(value = "service-provider", fallback = FeignConsumerHystrix.class,configuration = {
+
+})//绑定该接口对应service-provider服务  fallback指定的类必须实现@FeignClient标记的接口
 public interface FeignConsumerService {
 
     /**
@@ -14,4 +17,5 @@ public interface FeignConsumerService {
      */
     @GetMapping("/getApplicationName")
     String feignConsumer(@RequestParam(value = "time") String time);
+
 }
