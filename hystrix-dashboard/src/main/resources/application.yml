@@ -1,10 +1,10 @@
 #工程端口号
 server:
-  port: 4001
+  port: 5001
 
 spring:
   application:
-    name: feign-consumer #工程名，后面各个服务间调用接口要用到
+    name: hystrix-dashboard #工程名，后面各个服务间调用接口要用到
   rabbitmq:
     host: 14.23.124.140
     port: 40071
@@ -16,9 +16,8 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
 
-# 支持hystrix
-feign:
-  hystrix:
-    enabled: true
-  httpclient:
-    connection-timeout: 5000 #超时时间
+#通过 HTTP 实现一个actuator端点，它需要被启用并公开
+#management:
+#  endpoints:
+#    web:
+#      base-path: /
