@@ -10,9 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
 @EnableDiscoveryClient
-@EnableFeignClients // 开启Feign功能
+@EnableFeignClients // 开启Feign功能，同时查看依赖，Feign已经支持hytrix熔断，所以不需要再像Ribbon那样添加@EnableCircuitBreaker注解
 @SpringBootApplication
-@EnableCircuitBreaker // 开启Hystrix熔断器的使用 @EnableHystrix亦可，抑或使用@SpringCloudApplication可替代以上三个注解
 public class FeignConsumerApplication {
 
     public static void main(String[] args) {

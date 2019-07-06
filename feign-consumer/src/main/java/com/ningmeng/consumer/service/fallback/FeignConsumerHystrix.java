@@ -16,3 +16,4 @@ public class FeignConsumerHystrix implements FeignConsumerService {
         return "hystrix熔断：调用接口失败，服务降级，time=" + time;
     }
 }
+
