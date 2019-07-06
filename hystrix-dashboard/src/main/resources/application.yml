@@ -15,9 +15,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
-
-#通过 HTTP 实现一个actuator端点，它需要被启用并公开
-#management:
-#  endpoints:
-#    web:
-#      base-path: /

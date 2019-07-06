@@ -22,3 +22,10 @@ feign:
     enabled: true
   httpclient:
     connection-timeout: 5000 #超时时间
+
+#结合hystrix dashboard控制面板时，通过HTTP实现一个actuator端点，它需要被启用并公开，默认是只公开heath和info两个端点
+management:
+    endpoints:
+        web:
+            exposure:
+                include: '*'

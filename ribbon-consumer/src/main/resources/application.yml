@@ -15,3 +15,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
+
+#结合hystrix dashboard控制面板时，通过HTTP实现一个actuator端点，它需要被启用并公开，默认是只公开heath和info两个端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
