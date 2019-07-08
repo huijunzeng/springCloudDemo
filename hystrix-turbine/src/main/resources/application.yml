@@ -19,6 +19,6 @@ eureka:
 #聚合的工程  这里演示聚合ribbon-consumer,feign-consumer这两个消费工程
 turbine:
   aggregator:
-    clusterConfig: FEIGN-CONSUMER
-  appConfig: ribbon-consumer,feign-consumer
-#  cluster-name-expression: new String("default")
+    cluster-config: default
+  app-config: ribbon-consumer,feign-consumer
+  cluster-name-expression: new String("default")

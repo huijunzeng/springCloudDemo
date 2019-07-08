@@ -1,0 +1,25 @@
+#工程端口号
+server:
+  port: 6001
+
+#eureka注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
+
+#配置rabbitmq信息，git的配置仓库地址、账号以及密码（不设置权限时可不配置账号密码，或者可以对账号密码加密与解密）
+spring:
+  application:
+    name: config-server #工程名
+  rabbitmq:
+    host: 14.23.124.140
+    port: 40071
+    username: guest
+    password: guest
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/huijunzeng/configServer
+          search-paths: /config-rep #文件路径

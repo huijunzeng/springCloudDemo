@@ -10,7 +10,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
 
-#由于需要用到rabbitmq，所以也要配置rabbitmq  不配置之启动也能访问到eureka注册中心，但会提示mq连接报错  rabbitmq控制台访问地址 http://localhost:15672
+#由于需要用到rabbitmq，所以也要配置rabbitmq  不配置会提示mq连接报错  rabbitmq控制台访问地址 http://localhost:15672
 spring:
   application:
     name: eureka-server #工程名
