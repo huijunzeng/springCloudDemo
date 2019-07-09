@@ -16,13 +16,9 @@ spring cloud config分布式配置中心，用来为分布式系统的微服务�
 ###################################################################################################
 以上结合config-client工程即可实现基础版的配置管理中心，下面对config-server改造实现高可用
 在config-server的pom.xml引入eureka的依赖，使得config-server可以注册到eureka注册中心，然后在config-client可以根据serviceId调用
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-eureka</artifactId>
-</dependency>
 
-同时更改config-server的properties配置文件，加入eureka注册中心地址配置：
-eureka.client.serviceUrl.defaultZone=http://localhost:1111/eureka/
+
+同时更改config-server的properties配置文件，加入eureka注册中心地址配置
 以及在main主类中加入@@EnableDiscoveryClient注解
 
 之后到config-client工程继续改造
