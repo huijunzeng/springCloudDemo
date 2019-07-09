@@ -1,0 +1,27 @@
+
+#####################以下为不引入eureka的基础版的配置########################
+#spring:
+#    cloud:
+#        config:
+#            name: config-client
+#            uri: http://localhost:8888/
+#            profile: default
+#            label: master
+##############################################################################
+
+######################以下为引入eureka的高可用版的配置########################
+####配置属性的说明
+#spring.cloud.config.name：对应配置文件规则中的{application}部分
+#spring.cloud.config.profile：对应配置文件规则中的{profile}部分
+#spring.cloud.config.label：对应配置文件规则中的{label}部分
+#spring.cloud.config.uri：配置中心config-server的地址
+spring:
+  cloud:
+    config:
+      name: config-client
+      profile: default # 用来定位Git中的资源
+      label: master # 读取的分支
+      discovery:
+        serviceId: config-server # 参数来指定Config Server注册的服务名
+        enabled: true # 参数设置为true，开启通过服务来访问Config Server的功能
+################################################################################

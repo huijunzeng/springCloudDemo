@@ -1,17 +1,14 @@
-package com.ningmeng.configserver;
-
+package com.ningmeng.configclient;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
-@SpringBootApplication
-@EnableConfigServer //开启配置中心
 @EnableDiscoveryClient // 将服务注册到配置的服务注册中心
-public class ConfigServerApplication {
+@SpringBootApplication
+public class ConfigClientApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConfigServerApplication.class, args);
+        SpringApplication.run(ConfigClientApplication.class, args);
     }
 }

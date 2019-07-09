@@ -1,6 +1,6 @@
 #工程端口号
 server:
-  port: 8888
+  port: 6001
 
 #eureka注册中心地址
 eureka:
@@ -17,9 +17,10 @@ spring:
     port: 40071
     username: guest
     password: guest
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://gitee.com/huijunzeng/configServer
-          search-paths: /config-rep #文件路径
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://gitee.com/huijunzeng/configServer
+#          search-paths: /config-rep #文件路径
+from: config-client-1.0-local

@@ -1,0 +1,48 @@
+
+#####################以下为不引入eureka的基础版的配置##############
+#spring:
+#    application:
+#        name: config-client
+#    cloud:
+#        config:
+#            uri: http://localhost:6001/
+#            profile: default
+#            label: master
+#server:
+#    port: 4001
+####################################################################
+
+
+
+
+######################以下为引入eureka的高可用版的配置######################################
+####配置属性的说明
+#spring.application.name：对应配置文件规则中的{application}部分
+#spring.cloud.config.profile：对应配置文件规则中的{profile}部分
+#spring.cloud.config.label：对应配置文件规则中的{label}部分
+#spring.cloud.config.uri：配置中心config-server的地址
+#工程端口号
+#server:
+#  port: 4001
+spring:
+  application:
+    name: feign-consumer
+  cloud:
+    config:
+      name: feign-consumer
+      profile: default # 用来定位Git中的资源
+      label: master # 读取的分支
+      discovery:
+        serviceId: config-server # 参数来指定Config Server注册的服务名
+        enabled: true # 参数设置为true，开启通过服务来访问Config Server的功能
+# 忽略权限拦截 否则可能报错Full authentication is required to access this resource.
+#management:
+#  security:
+#    enabled: false
+#server:
+#  port: 4001
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/  # 参数指定服务注册中心，用于服务的注册与发现
+###############################################################################################
