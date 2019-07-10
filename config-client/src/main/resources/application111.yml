@@ -18,6 +18,10 @@ spring:
     username: guest
     password: guest
   cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
     bus:
       enabled: true
       trace:
