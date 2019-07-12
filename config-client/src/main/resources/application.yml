@@ -1,6 +1,8 @@
+###对应的git远程的配置文件信息
+
 #工程端口号
 server:
-  port: 6001
+  port: 6002
 
 #eureka注册中心地址
 eureka:
@@ -12,6 +14,8 @@ eureka:
 spring:
   application:
     name: config-client #工程名
+  profiles:
+    active: native
   rabbitmq:
     host: 14.23.124.140
     port: 40071
@@ -26,7 +30,6 @@ spring:
       enabled: true
       trace:
         enabled: true
-
 #开放actuator的bus-refresh端点
 management:
   endpoints:

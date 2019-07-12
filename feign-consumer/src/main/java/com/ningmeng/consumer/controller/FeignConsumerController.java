@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@RestController
+@RestController("/feign")
 public class FeignConsumerController {
 
     @Resource

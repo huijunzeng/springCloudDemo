@@ -1,6 +1,6 @@
 #工程端口号
 server:
-  port: 1000
+  port: 1001
 
 spring:
   application:

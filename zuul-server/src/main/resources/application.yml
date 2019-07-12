@@ -1,0 +1,29 @@
+#工程端口号
+server:
+  port: 7001
+
+spring:
+  application:
+    name: zuul-server #工程名
+  rabbitmq:
+    host: 14.23.124.140
+    port: 40071
+    username: guest
+    password: guest
+#eureka注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
+
+#创建路由规则  这里根据项目工程，我们只可以创建ribbon-consumer以及feign-consumer两个路由  创建规则可以参考源码中ZuulProperties类的属性
+zuul:
+  routes:
+    ribbon:
+      service-id: ribbon-consumer #ribbon-consumer服务的spring.application.name(所以前面说了个属性很重要，要注意) ant风格路径表达式，只能匹配一个层级
+      path: /ribbon/**
+      stripPrefix: true #如果stripPrefix=false，则去掉/ribbon，转发的请求是/**；如果为true，转发的请求是/ribbon/**
+    feign:
+      service-id: feign-consumer #这里填的是feign-consumer服务的spring.application.name(所以前面说了个属性很重要，要注意) ant风格路径表达式，只能匹配一个层级
+      path: /feign/**
+      stripPrefix: true #如果stripPrefix=false，则去掉/feign，转发的请求是/**；如果为true，转发的请求是/feign/**

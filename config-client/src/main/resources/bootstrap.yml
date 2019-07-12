@@ -22,6 +22,6 @@ spring:
       profile: default # 用来定位Git中的资源
       label: master # 读取的分支
       discovery:
-        serviceId: config-server # 参数来指定Config Server注册的服务名
+        service-id: config-server # 参数来指定Config Server注册的服务名
         enabled: true # 参数设置为true，开启通过服务来访问Config Server的功能
 ################################################################################

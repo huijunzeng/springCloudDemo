@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigClientController {
 
+    /**
+     * 需要在附带@Value的页面加上此注解 @RefreshScope
+     */
     @Value("${from}")
     String from;
     @Value("${server.port}")
