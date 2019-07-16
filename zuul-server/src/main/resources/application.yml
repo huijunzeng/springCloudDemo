@@ -16,14 +16,26 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
 
-#创建路由规则  这里根据项目工程，我们只可以创建ribbon-consumer以及feign-consumer两个路由  创建规则可以参考源码中ZuulProperties类的属性
+# 创建路由规则（两种方式，利用注册中心serviceId的方式更好）  这里根据项目工程，我们只可以创建ribbon-consumer以及feign-consumer两个路由  创建规则可以参考源码中ZuulProperties类的属性
+
+# url映射的方式
+#zuul:
+#  routes:
+#    ribbon:
+#      path: /ribbon/**
+#      url: http://localhost:3001/  #url对应的是ribbon-consumer服务的访问地址
+#  feign:
+#    path: /feign/**
+#    url: http://localhost:4001/  #url对应的是feign-consumer服务的访问地址
+
+#注册中心serviceId的映射方式
 zuul:
   routes:
-    ribbon:
+    ribbon: #自定义名称
       service-id: ribbon-consumer #ribbon-consumer服务的spring.application.name(所以前面说了个属性很重要，要注意) ant风格路径表达式，只能匹配一个层级
       path: /ribbon/**
       stripPrefix: true #如果stripPrefix=false，则去掉/ribbon，转发的请求是/**；如果为true，转发的请求是/ribbon/**
-    feign:
+    feign: #自定义名称
       service-id: feign-consumer #这里填的是feign-consumer服务的spring.application.name(所以前面说了个属性很重要，要注意) ant风格路径表达式，只能匹配一个层级
       path: /feign/**
-      stripPrefix: true #如果stripPrefix=false，则去掉/feign，转发的请求是/**；如果为true，转发的请求是/feign/**
+      stripPrefix: true #如果stripPrefix=false，则去掉/feign，转发的请求是/**；如果为true，转发的请求是/feign/** ?????还没解决

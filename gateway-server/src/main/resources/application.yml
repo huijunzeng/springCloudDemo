@@ -1,0 +1,36 @@
+#工程端口号
+server:
+  port: 8001
+
+#eureka注册中心地址
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
+
+spring:
+  application:
+    name: gateway-server #工程名
+  rabbitmq:
+    host: 14.23.124.140
+    port: 40071
+    username: guest
+    password: guest
+  #网关配置
+  cloud:
+    gateway:
+      routes:
+        ##ribbon-consumer调用  两种方式（实际中以第二种方式配置并持久化数据库）： 服务url的方式：http://localhost:3001/   或者注册服务serviceId的方式： lb://ribbon-consumer
+        - id: ribbon
+          uri: lb://ribbon-consumer
+          predicates:
+            - Path=/ribbon/**
+          filters:
+            - StripPrefix=1
+        ##feign-consumer调用  两种方式（实际中以第二种方式配置并持久化数据库）： 服务url的方式：http://localhost:4001/   或者注册服务serviceId的方式： lb://feign-consumer
+        - id: feign
+          uri: lb://feign-consumer
+          predicates:
+            - Path=/feign/**
+          filters:
+            - StripPrefix=1

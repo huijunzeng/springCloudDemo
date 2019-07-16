@@ -19,6 +19,7 @@
         <module>config-server</module>
         <module>config-client</module>
         <module>zuul-server</module>
+        <module>gateway-server</module>
     </modules>
 
     <properties>
@@ -89,11 +90,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
         </dependency>
-        <!--web-->
-        <dependency>
+        <!--web 会与gateway的webflux冲突  注释掉-->
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>-->
         <!--热加载-->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
