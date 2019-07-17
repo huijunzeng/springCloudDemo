@@ -10,6 +10,18 @@ spring:
     port: 40071
     username: guest
     password: guest
+  #开启sleuth链路追踪功能  true
+  sleuth:
+    web:
+      client:
+        enabled: true
+    # 设置为1.0时，链路的信息100%收集到zipkin-server  最大为1.0，假如收集20%即为0.2
+    sampler:
+      probability: 1.0
+  #配置zipkin服务器的地址
+  zipkin:
+    base-url: http://localost:9411
+
 #eureka注册中心地址
 eureka:
   client:
