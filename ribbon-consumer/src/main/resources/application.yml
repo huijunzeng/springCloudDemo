@@ -6,8 +6,8 @@ spring:
   application:
     name: ribbon-consumer #工程名，后面各个服务间调用接口要用到
   rabbitmq:
-    host: 14.23.124.140
-    port: 40071
+    host: localhost
+    port: 5672
     username: guest
     password: guest
   #开启sleuth链路追踪功能  true
