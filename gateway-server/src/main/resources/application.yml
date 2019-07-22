@@ -34,3 +34,17 @@ spring:
             - Path=/feign/**
           filters:
             - StripPrefix=1
+
+  #开启sleuth链路追踪功能  true
+  sleuth:
+    web:
+      client:
+        enabled: true
+    # 设置为1.0时，链路的信息100%收集到zipkin-server  最大为1.0，假如收集20%即为0.2
+    sampler:
+      probability: 1.0
+  #配置zipkin服务器的地址
+  zipkin:
+    sender:
+      type: rabbit
+#    base-url: http://localhost:9411 #http的方式提交到zipkin
