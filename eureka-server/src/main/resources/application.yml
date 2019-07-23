@@ -9,6 +9,8 @@ eureka:
     fetchRegistry: false #是否需要从eureka服务器获取注册信息
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/ #eureka服务器所在的地址
+  server:
+    enable-self-preservation: true  #开启自我保护  默认情况下，Eureka会将超过90s未续约的服务进行移除，为了防止出现误杀服务的情况（比如网络信号出现异常，这时不应该移除服务的），可开启自我保护机制
 
 #由于需要用到rabbitmq，所以也要配置rabbitmq  不配置会提示mq连接报错  rabbitmq控制台访问地址 http://localhost:15672
 spring:
