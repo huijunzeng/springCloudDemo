@@ -13,8 +13,8 @@ spring:
   application:
     name: config-server #工程名
   rabbitmq:
-    host: 14.23.124.140
-    port: 40071
+    host: localhost
+    port: 5672
     username: guest
     password: guest
   cloud:
