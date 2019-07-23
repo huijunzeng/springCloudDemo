@@ -1,5 +1,12 @@
 spring cloud eureka服务注册中心，用于服务的注册与发现
 
+eureka的配置有四部分（详细请自行搜索文档）：
+1.instance：当前Eureka Instance实例信息配置（基本用不到）
+2.client：Eureka Client客户端特性配置
+3.server：Eureka Server注册中心特性配置：
+  enableSelfPreservation=true  是否开启自我保护
+4.dashboard：Eureka Server注册中心仪表盘配置
+
 若需要将Eureka注册中心组件更换为Consul，可以省掉这个子聚合工程，因为Consul自身提供了服务端，只需把服务提供方的依赖
 <dependency>
     <groupId>org.springframework.cloud</groupId>
